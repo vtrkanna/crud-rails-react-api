@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -39,3 +41,48 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Custom gems
+#
+# Local development support gems
+group :development do
+  gem 'annotate'
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'dotenv-rails'
+end
+
+# Test related gems
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
+# Code analyzer
+group :metrics do
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'rails_best_practices'
+  gem 'rubocop', require: false
+  gem 'rubocop-faker'
+  gem 'rubocop-gitlab-security'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+  gem 'simplecov'
+end
+
+# Error exception notifier
+gem 'exception_notification'
+
+# List Transaction Handling
+gem 'acts_as_list'
+
+# serialize data
+gem 'active_model_serializers'
+
+# Cross-Origin handler
+gem 'rack-cors'
