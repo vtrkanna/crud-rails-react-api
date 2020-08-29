@@ -41,7 +41,18 @@ class Api::V1::QuestionsController < ApplicationController
     @question.destroy
   end
 
-  private
+  # POST /questions/import
+  def import
+    status, errors, rows = CsvParser.new(import_params[:csv_file])
+    if status == true
+      Question.create(rows)
+      rendor json: {message: 'successfully updated', count: rows.rows}
+    else
+      render json: errors, status: :unprocessable_entity
+    end
+  end
+
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
       @question = Question.find(params[:id])
@@ -50,5 +61,9 @@ class Api::V1::QuestionsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def question_params
       params.fetch(:question, {})
+    end
+
+    def import_params
+      params.require(:csv_file)
     end
 end

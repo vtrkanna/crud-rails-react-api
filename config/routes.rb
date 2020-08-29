@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   concern :api_base do
     resources :mappings
     resources :roles
-    resources :questions
+    resources :questions do
+      post 'import'
+    end
   end
 
   namespace :api, constraints: { format: 'json' }  do

@@ -41,7 +41,7 @@ class Api::V1::MappingsController < ApplicationController
     @mapping.destroy
   end
 
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_mapping
       @mapping = Mapping.find(params[:id])

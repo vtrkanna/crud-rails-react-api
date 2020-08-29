@@ -41,7 +41,7 @@ class Api::V1::RolesController < ApplicationController
     @role.destroy
   end
 
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_role
       @role = Role.find(params[:id])
