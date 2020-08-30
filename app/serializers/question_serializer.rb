@@ -24,6 +24,8 @@ class QuestionSerializer < ActiveModel::Serializer
   attributes :id, :pri, :title, :appears_day, :frequency, :rating_type,
   :required, :conditions, :teaming_stages, :role, :mapping
 
+  cache key: 'questions', expires_in: 3.hours
+
   belongs_to :role
   belongs_to :mapping
 

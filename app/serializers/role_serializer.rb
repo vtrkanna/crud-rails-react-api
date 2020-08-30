@@ -13,4 +13,6 @@
 #
 class RoleSerializer < ActiveModel::Serializer
   attributes :id, :name
+
+  cache key: 'roles', expires_in: 3.hours
 end

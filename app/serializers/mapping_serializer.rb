@@ -13,4 +13,6 @@
 #
 class MappingSerializer < ActiveModel::Serializer
   attributes :id, :name
+
+  cache key: 'mappings', expires_in: 3.hours
 end
