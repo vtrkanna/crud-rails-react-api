@@ -24,4 +24,14 @@
 #
 # Question
 class Question < ApplicationRecord
+
+  # Relationships
+  belongs_to :role, optional: true
+  belongs_to :mapping, optional: true
+
+  # Enumerations
+  enum teaming_stages: ["All", "Norming", "Forming", "Performing"]
+
+  #Valdations
+  validates :title, :teaming_stages, presence: true
 end

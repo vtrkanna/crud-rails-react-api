@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+
+# Role creations
+roles = ['Admin', 'User', 'Both']
+roles.each do |role|
+  Role.find_or_create_by(name: role)
+end
+
+
+# Mapping creations
+mappings = ['Collaboration', 'Engagement', 'Communication', 'Trust', 'Resources', 'Clarity', 'Management']
+mappings.each do |mapping|
+  Mapping.find_or_create_by(name: mapping)
+end

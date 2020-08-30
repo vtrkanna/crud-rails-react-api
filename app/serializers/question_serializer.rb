@@ -21,5 +21,17 @@
 #  index_questions_on_name  (title)
 #
 class QuestionSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :pri, :title, :appears_day, :frequency, :rating_type,
+  :required, :conditions, :teaming_stages, :role, :mapping
+
+  belongs_to :role
+  belongs_to :mapping
+
+  def role
+    object.role.name
+  end
+
+  def mapping
+    object.mapping.name
+  end
 end

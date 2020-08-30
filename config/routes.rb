@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     resources :mappings
     resources :roles
     resources :questions do
-      post 'import'
+      collection do
+        post 'import'
+      end
     end
   end
 
-  namespace :api, constraints: { format: 'json' }  do
+  namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
       concerns :api_base
     end

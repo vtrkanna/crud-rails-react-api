@@ -15,4 +15,9 @@
 #
 # Mapping
 class Mapping < ApplicationRecord
+
+  # Relationships
+  has_many :questions
+
+  validates :name, uniqueness: true
 end

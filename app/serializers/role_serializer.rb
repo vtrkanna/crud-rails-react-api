@@ -12,5 +12,5 @@
 #  index_roles_on_name  (name)
 #
 class RoleSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name
 end

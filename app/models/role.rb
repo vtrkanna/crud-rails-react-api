@@ -15,4 +15,9 @@
 #
 # Role
 class Role < ApplicationRecord
+
+  # Relationships
+  has_many :questions
+
+  validates :name, uniqueness: true
 end

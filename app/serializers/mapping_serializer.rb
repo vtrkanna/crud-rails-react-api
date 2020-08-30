@@ -12,5 +12,5 @@
 #  index_mappings_on_name  (name)
 #
 class MappingSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name
 end

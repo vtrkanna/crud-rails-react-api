@@ -43,10 +43,11 @@ class Api::V1::QuestionsController < ApplicationController
 
   # POST /questions/import
   def import
-    status, errors, rows = CsvParser.new(import_params[:csv_file])
+    parsing = CsvParser.new(import_params)
+    status, errors, rows = parsing.rows
     if status == true
       Question.create(rows)
-      rendor json: {message: 'successfully updated', count: rows.rows}
+      rendor json: {message: 'successfully updated', count: rows.count}
     else
       render json: errors, status: :unprocessable_entity
     end
